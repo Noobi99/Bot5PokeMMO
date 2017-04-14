@@ -29,5 +29,10 @@ namespace Bot5PokeMMO.Framework
                 cordY[i] = pokemonY;
             }
         }
+
+        internal void GenerateVars(int col, int x, int y)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
