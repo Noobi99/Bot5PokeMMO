@@ -11,8 +11,8 @@ namespace Bot5PokeMMO.Framework
     public class BotLogic
     {
         // Console variables
-        int type = 1;
-        string message = "not set";
+        public int type = 1;
+        string message = "";
 
         // Keeping track of encounters
         public double encounters = 1;
@@ -122,7 +122,8 @@ namespace Bot5PokeMMO.Framework
                         if (state[i] == "run")
                         {
                             runPokemon();
-                            message = "Ran from = " + colpix[i];
+                            message = "Ran from = " + colpix[i]; // message
+                            type = 1; // used for message 
                             break;
                         }
                         else if (state[i] == "catch")
@@ -130,11 +131,13 @@ namespace Bot5PokeMMO.Framework
                             
                             catchPokemon();
                             message = "Catching  = " + colpix[i];
+                            type = 1;
                             break;
                         }
                         else
                         {
                             message = "Error: undefined state";
+                            type = 1;
                         }
                     }
                     else if (i == totalPokemon - 1 && catchUnspecifiedPokemon == true) //when for loop is finished
@@ -381,13 +384,11 @@ namespace Bot5PokeMMO.Framework
         {
             int msgType = type;
             string msgToWrite = message;
-            string lastMessage = "";
 
-            if(type == 1 && message != lastMessage)
+            if(type == 1)
             {
                 msgToWrite = msgToWrite + "\n";
-
-                lastMessage = message;
+                type = 0;
 
             }
             else
