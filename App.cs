@@ -39,6 +39,7 @@ namespace Bot5PokeMMO
             // Settings recommended settings
             chkOnTop.Checked = true;
             cmbWalk.Text = "Left & Right";
+            cmbBot.Text = "VIRIDIAN FOREST";
 
             #region Default values for hotkeys and pixel-/coords
             // This parameters should be filled out by a config file with def values.
@@ -161,33 +162,25 @@ namespace Bot5PokeMMO
 
         private void cmbBot_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(cmbWalk.Text == "Left & Right")
-            {
-                // setting walking pattern
-                bot.walkPattern = "leftright";
-            }
-            else if(cmbWalk.Text == "Up & Down")
-            {
-                // setting walking pattern
-                bot.walkPattern = "updown";
-            }
-
-            if(cmbBot.Text == "Cape Brink")
+            if(cmbBot.Text == "VIRIDIAN FOREST")
             {
                 // setting total pokemon via textbox
-                bot.SetTotalPokemon(4);
+                bot.SetTotalPokemon(5);
+
+                bot.randomSleepRunB = 300;
+                bot.randomSleepRunB = 400;
 
                 // add all pokemon that needs to be checked
-                bot.AssignVars(0xF88060, 712, 241, "run"); // Slowpoke
-                bot.AssignVars(0xF8D048, 694, 198, "run"); // Psyduck
-                bot.AssignVars(0x98A0C8, 666, 235, "run"); // Squirtle
+                bot.AssignVars(0x98D048, 668, 234, "run"); // Caterpie
+                bot.AssignVars(0xF8E800, 666, 239, "run"); // Pikachu
+                bot.AssignVars(0xB8F870, 647, 243, "run"); // Metapod
+                bot.AssignVars(0xF8E098, 672, 210, "run"); // Kakuna
+                bot.AssignVars(0xE8A840, 659, 265, "run"); // Weedle
 
                 timerLogic.Interval = 300;
             }
-            else
-            {
-
-            }
+           
+          
         }
 
         public void setPokeMMO() // this method sets window size and position
@@ -198,5 +191,19 @@ namespace Bot5PokeMMO
             printToConsole("Window moved succesfully");
         }
 
+        private void cmbWalk_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbWalk.Text == "Left & Right")
+            {
+                // setting walking pattern
+                bot.walkPattern = "leftright";
+            }
+            else if (cmbWalk.Text == "Up & Down")
+            {
+                // setting walking pattern
+                bot.walkPattern = "updown";
+            }
+
+        }
     }
 }

@@ -37,26 +37,28 @@
             this.lblStatus = new System.Windows.Forms.Label();
             this.tmrTime = new System.Windows.Forms.Timer(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtSleepE = new System.Windows.Forms.TextBox();
+            this.txtSleepB = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cmbWalk = new System.Windows.Forms.ComboBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.label1 = new System.Windows.Forms.Label();
             this.txtRight = new System.Windows.Forms.TextBox();
             this.txtLeft = new System.Windows.Forms.TextBox();
             this.txtDown = new System.Windows.Forms.TextBox();
             this.txtUp = new System.Windows.Forms.TextBox();
             this.btnHotkeys = new System.Windows.Forms.Button();
-            this.cmbWalk = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtSleepB = new System.Windows.Forms.TextBox();
-            this.txtSleepE = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnStart
@@ -81,7 +83,7 @@
             this.cmbBot.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbBot.FormattingEnabled = true;
             this.cmbBot.Items.AddRange(new object[] {
-            "Cape Brink"});
+            "VIRIDIAN FOREST"});
             this.cmbBot.Location = new System.Drawing.Point(23, 30);
             this.cmbBot.Name = "cmbBot";
             this.cmbBot.Size = new System.Drawing.Size(190, 24);
@@ -91,10 +93,10 @@
             // rtbConsole
             // 
             this.rtbConsole.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.rtbConsole.Location = new System.Drawing.Point(348, 12);
+            this.rtbConsole.Location = new System.Drawing.Point(344, 12);
             this.rtbConsole.Name = "rtbConsole";
             this.rtbConsole.ReadOnly = true;
-            this.rtbConsole.Size = new System.Drawing.Size(266, 294);
+            this.rtbConsole.Size = new System.Drawing.Size(270, 311);
             this.rtbConsole.TabIndex = 2;
             this.rtbConsole.Text = "";
             this.rtbConsole.TextChanged += new System.EventHandler(this.rtbConsole_TextChanged);
@@ -104,7 +106,7 @@
             this.chkOnTop.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.chkOnTop.AutoSize = true;
-            this.chkOnTop.Location = new System.Drawing.Point(17, 16);
+            this.chkOnTop.Location = new System.Drawing.Point(28, 16);
             this.chkOnTop.Name = "chkOnTop";
             this.chkOnTop.Size = new System.Drawing.Size(85, 21);
             this.chkOnTop.TabIndex = 3;
@@ -141,6 +143,15 @@
             this.panel1.Size = new System.Drawing.Size(633, 71);
             this.panel1.TabIndex = 5;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(20, 10);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(87, 17);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Select a bot:";
+            // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
@@ -154,13 +165,13 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.checkBox1);
             this.tabPage1.Controls.Add(this.label4);
             this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.txtSleepE);
             this.tabPage1.Controls.Add(this.txtSleepB);
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.cmbWalk);
-            this.tabPage1.Controls.Add(this.chkOnTop);
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -168,6 +179,64 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "General";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(68, 93);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(13, 17);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "-";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(13, 70);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(136, 17);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Interval in ms (Walk)";
+            // 
+            // txtSleepE
+            // 
+            this.txtSleepE.Location = new System.Drawing.Point(81, 90);
+            this.txtSleepE.MaxLength = 20;
+            this.txtSleepE.Name = "txtSleepE";
+            this.txtSleepE.Size = new System.Drawing.Size(51, 22);
+            this.txtSleepE.TabIndex = 7;
+            this.txtSleepE.Text = "500";
+            // 
+            // txtSleepB
+            // 
+            this.txtSleepB.Location = new System.Drawing.Point(16, 90);
+            this.txtSleepB.MaxLength = 20;
+            this.txtSleepB.Name = "txtSleepB";
+            this.txtSleepB.Size = new System.Drawing.Size(51, 22);
+            this.txtSleepB.TabIndex = 6;
+            this.txtSleepB.Text = "300";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(13, 15);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(93, 17);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Walk Pattern:";
+            // 
+            // cmbWalk
+            // 
+            this.cmbWalk.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbWalk.FormattingEnabled = true;
+            this.cmbWalk.Items.AddRange(new object[] {
+            "Left & Right",
+            "Up & Down"});
+            this.cmbWalk.Location = new System.Drawing.Point(16, 35);
+            this.cmbWalk.Name = "cmbWalk";
+            this.cmbWalk.Size = new System.Drawing.Size(169, 24);
+            this.cmbWalk.TabIndex = 4;
+            this.cmbWalk.SelectedIndexChanged += new System.EventHandler(this.cmbWalk_SelectedIndexChanged);
             // 
             // tabPage2
             // 
@@ -183,24 +252,6 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Hotkeys";
             this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 25);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(322, 265);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Advanced";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(20, 10);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(87, 17);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Select a bot:";
             // 
             // txtRight
             // 
@@ -239,62 +290,26 @@
             this.btnHotkeys.Text = "Set Hotkeys";
             this.btnHotkeys.UseVisualStyleBackColor = true;
             // 
-            // cmbWalk
+            // tabPage3
             // 
-            this.cmbWalk.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbWalk.FormattingEnabled = true;
-            this.cmbWalk.Items.AddRange(new object[] {
-            "Left & Right",
-            "Up & Down"});
-            this.cmbWalk.Location = new System.Drawing.Point(17, 87);
-            this.cmbWalk.Name = "cmbWalk";
-            this.cmbWalk.Size = new System.Drawing.Size(169, 24);
-            this.cmbWalk.TabIndex = 4;
+            this.tabPage3.Controls.Add(this.chkOnTop);
+            this.tabPage3.Location = new System.Drawing.Point(4, 25);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(322, 265);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Advanced";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // checkBox1
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(14, 67);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(93, 17);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Walk Pattern:";
-            // 
-            // txtSleepB
-            // 
-            this.txtSleepB.Location = new System.Drawing.Point(17, 142);
-            this.txtSleepB.MaxLength = 20;
-            this.txtSleepB.Name = "txtSleepB";
-            this.txtSleepB.Size = new System.Drawing.Size(51, 22);
-            this.txtSleepB.TabIndex = 6;
-            this.txtSleepB.Text = "300";
-            // 
-            // txtSleepE
-            // 
-            this.txtSleepE.Location = new System.Drawing.Point(82, 142);
-            this.txtSleepE.MaxLength = 20;
-            this.txtSleepE.Name = "txtSleepE";
-            this.txtSleepE.Size = new System.Drawing.Size(51, 22);
-            this.txtSleepE.TabIndex = 7;
-            this.txtSleepE.Text = "500";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(14, 122);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(136, 17);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Interval in ms (Walk)";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(69, 145);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(13, 17);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "-";
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Enabled = false;
+            this.checkBox1.Location = new System.Drawing.Point(16, 139);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(168, 21);
+            this.checkBox1.TabIndex = 10;
+            this.checkBox1.Text = "Catch Shiny Pokemon";
+            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // App
             // 
@@ -317,6 +332,8 @@
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -348,5 +365,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtSleepE;
         private System.Windows.Forms.TextBox txtSleepB;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }

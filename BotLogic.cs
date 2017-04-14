@@ -25,8 +25,8 @@ namespace Bot5PokeMMO.Framework
         public int randomSleepAtkE = 200;
 
         static int randomSleepRun;
-        public int randomSleepRunB = 100;
-        public int randomSleepRunE = 200;
+        public int randomSleepRunB = 300;
+        public int randomSleepRunE = 400;
         #endregion
 
         // Hotkeys
@@ -86,7 +86,7 @@ namespace Bot5PokeMMO.Framework
             int[] cordX = new int[totalPokemon];
             int[] cordY = new int[totalPokemon];
 
-            MessageBox.Show("Total pokemon set to: " + totalPokemon);
+            //MessageBox.Show("Total pokemon set to: " + totalPokemon);
 
         }
 
@@ -113,16 +113,14 @@ namespace Bot5PokeMMO.Framework
             {
                 for (int i = 0; i < totalPokemon; i++)
                 {
-                    if(autoit.PixelGetColor(cordx[i], cordy[i]) == colpix[i])
+                    if (autoit.PixelGetColor(cordx[i], cordy[i]) == colpix[i])
                     {
-                        int x = i; // storing value i before if statement
-
-                        if (state[x] == "run")
+                        if (state[i] == "run")
                         {
                             runPokemon();
                             break;
                         }
-                        else if (state[x] == "catch")
+                        else if (state[i] == "catch")
                         {
                             catchPokemon();
                             break;
@@ -132,11 +130,14 @@ namespace Bot5PokeMMO.Framework
                             MessageBox.Show("Error: Undefined state");
                         }
                     }
-                    else
+                    else if (i == totalPokemon - 1) //when for loop is finished
                     {
                         // Catch function - presumrably shiny
-                        //catchPokemon(); THIS DOES NOT SEEM TO WORK?
+                        catchPokemon();
+
+                        break;
                     }
+                   
 
                 }
             }
@@ -194,7 +195,7 @@ namespace Bot5PokeMMO.Framework
             Random rnd = new Random();
 
             // randomSleep is set to a random number
-            randomSleepAtk = rnd.Next(randomSleepRunB, randomSleepRunE);
+            randomSleepRun = rnd.Next(randomSleepRunB, randomSleepRunE);
 
             // Making the bot sleep at a random interval after randomSleep has been set
             autoit.Sleep(randomSleepRun);
