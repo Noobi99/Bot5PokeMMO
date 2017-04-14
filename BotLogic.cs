@@ -20,11 +20,9 @@ namespace Bot5PokeMMO.Framework
         public int randomSleepWalkE = 300;
 
         // Not used yet
-        static int randomSleepAtk;
         public int randomSleepAtkB = 100;
         public int randomSleepAtkE = 200;
 
-        static int randomSleepRun;
         public int randomSleepRunB = 300;
         public int randomSleepRunE = 400;
         #endregion
@@ -160,9 +158,6 @@ namespace Bot5PokeMMO.Framework
             string pokemonName;
             pokemonName = pokemon;
 
-            // Creating a new instance of Random
-            Random rnd = new Random();
-
             // Sleeping before battle has begun
             autoit.Sleep(2000);
 
@@ -195,22 +190,34 @@ namespace Bot5PokeMMO.Framework
             string pokemonName;
             pokemonName = pokemon;
 
-            // Creating a new instance of Random
-            Random rnd = new Random();
-
-            // randomSleep is set to a random number
-            randomSleepRun = rnd.Next(randomSleepRunB, randomSleepRunE);
-
             // Making the bot sleep at a random interval after randomSleep has been set
-            autoit.Sleep(randomSleepRun);
+            autoit.Sleep(RandomSleep(randomSleepRunB, randomSleepRunE));
 
             // A MouseClick is now simulated to kill the pokemon
             autoit.MouseClick("LEFT", 386, 407);
         }
 
-        public void attackPokemon(int atkid)
+        public void attackPokemon(int id = 1)
         {
-            // this function has not been created yet
+            // Not implemented yet
+            switch (id)
+            {
+                case 1:
+
+                    break;
+
+                case 2:
+
+                    break;
+
+                case 3:
+
+                    break;
+
+                case 4:
+
+                    break;
+            }
         }
 
         #endregion
@@ -221,20 +228,13 @@ namespace Bot5PokeMMO.Framework
             // setting string direction equals dir
             string dir = direction;
 
-            // Creating a new instance of Random
-            Random rnd = new Random();
-
-            // randomSleep is set to a random number
-            randomSleepWalk = rnd.Next(randomSleepWalkB, randomSleepWalkE);
-
-
             switch (dir)
             {
                 case "left":
                     autoit.Send(combineString(_hotkeyLeft, "d"));
 
                     // Making the bot sleep at a random interval after randomSleep has been set
-                    autoit.Sleep(randomSleepWalk);
+                    autoit.Sleep(RandomSleep(randomSleepWalkB, randomSleepWalkE));
 
                     autoit.Send(combineString(_hotkeyLeft, "u"));
 
@@ -245,7 +245,7 @@ namespace Bot5PokeMMO.Framework
                     autoit.Send(combineString(_hotkeyRight, "d"));
 
                     // Making the bot sleep at a random interval after randomSleep has been set
-                    autoit.Sleep(randomSleepWalk);
+                    autoit.Sleep(RandomSleep(randomSleepWalkB, randomSleepWalkE));
 
                     autoit.Send(combineString(_hotkeyRight, "u"));
 
@@ -256,7 +256,7 @@ namespace Bot5PokeMMO.Framework
                     autoit.Send(combineString(_hotkeyUp, "d"));
 
                     // Making the bot sleep at a random interval after randomSleep has been set
-                    autoit.Sleep(randomSleepWalk);
+                    autoit.Sleep(RandomSleep(randomSleepWalkB, randomSleepWalkE));
 
                     autoit.Send(combineString(_hotkeyUp, "u"));
 
@@ -267,7 +267,7 @@ namespace Bot5PokeMMO.Framework
                     autoit.Send(combineString(_hotkeyDown, "d"));
 
                     // Making the bot sleep at a random interval after randomSleep has been set
-                    autoit.Sleep(randomSleepWalk);
+                    autoit.Sleep(RandomSleep(randomSleepWalkB, randomSleepWalkE));
 
                     autoit.Send(combineString(_hotkeyDown, "u"));
 
@@ -325,6 +325,23 @@ namespace Bot5PokeMMO.Framework
             {
                 result = "No state was signed";
             }
+
+            return result;
+
+        }
+
+        public int RandomSleep(int begin, int end)
+        {
+            int result;
+
+            int _begin = begin;
+            int _end = end;
+
+            // Creating a new instance of Random
+            Random rnd = new Random();
+
+            // randomSleep is set to a random number
+            result = rnd.Next(_begin, _end);
 
             return result;
 

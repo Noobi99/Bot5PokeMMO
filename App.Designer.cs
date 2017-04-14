@@ -221,7 +221,7 @@
             // txtSleepE
             // 
             this.txtSleepE.Location = new System.Drawing.Point(81, 90);
-            this.txtSleepE.MaxLength = 20;
+            this.txtSleepE.MaxLength = 4;
             this.txtSleepE.Name = "txtSleepE";
             this.txtSleepE.Size = new System.Drawing.Size(51, 22);
             this.txtSleepE.TabIndex = 7;
@@ -230,7 +230,7 @@
             // txtSleepB
             // 
             this.txtSleepB.Location = new System.Drawing.Point(16, 90);
-            this.txtSleepB.MaxLength = 20;
+            this.txtSleepB.MaxLength = 4;
             this.txtSleepB.Name = "txtSleepB";
             this.txtSleepB.Size = new System.Drawing.Size(51, 22);
             this.txtSleepB.TabIndex = 6;
