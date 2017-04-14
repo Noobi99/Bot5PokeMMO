@@ -53,7 +53,7 @@
             this.txtUp = new System.Windows.Forms.TextBox();
             this.btnHotkeys = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.chkCatchShiny = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -165,7 +165,7 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.checkBox1);
+            this.tabPage1.Controls.Add(this.chkCatchShiny);
             this.tabPage1.Controls.Add(this.label4);
             this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.txtSleepE);
@@ -300,16 +300,15 @@
             this.tabPage3.Text = "Advanced";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // checkBox1
+            // chkCatchShiny
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Enabled = false;
-            this.checkBox1.Location = new System.Drawing.Point(16, 139);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(168, 21);
-            this.checkBox1.TabIndex = 10;
-            this.checkBox1.Text = "Catch Shiny Pokemon";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.chkCatchShiny.AutoSize = true;
+            this.chkCatchShiny.Location = new System.Drawing.Point(16, 139);
+            this.chkCatchShiny.Name = "chkCatchShiny";
+            this.chkCatchShiny.Size = new System.Drawing.Size(168, 21);
+            this.chkCatchShiny.TabIndex = 10;
+            this.chkCatchShiny.Text = "Catch Shiny Pokemon";
+            this.chkCatchShiny.UseVisualStyleBackColor = true;
             // 
             // App
             // 
@@ -365,6 +364,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtSleepE;
         private System.Windows.Forms.TextBox txtSleepB;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox chkCatchShiny;
     }
 }

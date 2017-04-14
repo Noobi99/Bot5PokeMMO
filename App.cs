@@ -40,6 +40,7 @@ namespace Bot5PokeMMO
             chkOnTop.Checked = true;
             cmbWalk.Text = "Left & Right";
             cmbBot.Text = "VIRIDIAN FOREST";
+            chkCatchShiny.Checked = true;
 
             #region Default values for hotkeys and pixel-/coords
             // This parameters should be filled out by a config file with def values.
