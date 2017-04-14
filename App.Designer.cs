@@ -54,18 +54,15 @@
             this.txtUp = new System.Windows.Forms.TextBox();
             this.btnHotkeys = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.btnTest = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
-            this.tabPage4.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnStart
@@ -165,7 +162,6 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -194,9 +190,9 @@
             this.chkCatchShiny.AutoSize = true;
             this.chkCatchShiny.Location = new System.Drawing.Point(17, 130);
             this.chkCatchShiny.Name = "chkCatchShiny";
-            this.chkCatchShiny.Size = new System.Drawing.Size(168, 21);
+            this.chkCatchShiny.Size = new System.Drawing.Size(254, 21);
             this.chkCatchShiny.TabIndex = 10;
-            this.chkCatchShiny.Text = "Catch Shiny Pokemon";
+            this.chkCatchShiny.Text = "Catch Unspecified Pokemon (shiny)";
             this.chkCatchShiny.UseVisualStyleBackColor = true;
             this.chkCatchShiny.CheckedChanged += new System.EventHandler(this.chkCatchShiny_CheckedChanged);
             // 
@@ -251,7 +247,8 @@
             this.cmbWalk.FormattingEnabled = true;
             this.cmbWalk.Items.AddRange(new object[] {
             "Left & Right",
-            "Up & Down"});
+            "Up & Down",
+            "Square"});
             this.cmbWalk.Location = new System.Drawing.Point(16, 35);
             this.cmbWalk.Name = "cmbWalk";
             this.cmbWalk.Size = new System.Drawing.Size(169, 24);
@@ -279,7 +276,6 @@
             // 
             // txtRight
             // 
-            this.txtRight.Enabled = false;
             this.txtRight.Location = new System.Drawing.Point(21, 102);
             this.txtRight.Name = "txtRight";
             this.txtRight.Size = new System.Drawing.Size(92, 22);
@@ -288,7 +284,6 @@
             // 
             // txtLeft
             // 
-            this.txtLeft.Enabled = false;
             this.txtLeft.Location = new System.Drawing.Point(21, 74);
             this.txtLeft.Name = "txtLeft";
             this.txtLeft.Size = new System.Drawing.Size(92, 22);
@@ -297,7 +292,6 @@
             // 
             // txtDown
             // 
-            this.txtDown.Enabled = false;
             this.txtDown.Location = new System.Drawing.Point(21, 46);
             this.txtDown.Name = "txtDown";
             this.txtDown.Size = new System.Drawing.Size(92, 22);
@@ -306,7 +300,6 @@
             // 
             // txtUp
             // 
-            this.txtUp.Enabled = false;
             this.txtUp.Location = new System.Drawing.Point(21, 18);
             this.txtUp.Name = "txtUp";
             this.txtUp.Size = new System.Drawing.Size(92, 22);
@@ -333,17 +326,6 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Advanced";
             this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.Controls.Add(this.btnTest);
-            this.tabPage4.Location = new System.Drawing.Point(4, 25);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(322, 265);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Pixel";
-            this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // label5
             // 
@@ -381,16 +363,6 @@
             this.label8.TabIndex = 12;
             this.label8.Text = "Key Left";
             // 
-            // btnTest
-            // 
-            this.btnTest.Location = new System.Drawing.Point(55, 51);
-            this.btnTest.Name = "btnTest";
-            this.btnTest.Size = new System.Drawing.Size(152, 76);
-            this.btnTest.TabIndex = 0;
-            this.btnTest.Text = "test";
-            this.btnTest.UseVisualStyleBackColor = true;
-            this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
-            // 
             // App
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -414,7 +386,6 @@
             this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
-            this.tabPage4.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -447,11 +418,9 @@
         private System.Windows.Forms.TextBox txtSleepE;
         private System.Windows.Forms.TextBox txtSleepB;
         private System.Windows.Forms.CheckBox chkCatchShiny;
-        private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button btnTest;
     }
 }

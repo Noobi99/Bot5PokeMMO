@@ -12,10 +12,10 @@ namespace Bot5PokeMMO.Framework
     {
         // Global variables
         public string walkPattern;
+        public bool catchUnspecifiedPokemon = true;
 
         #region random val
         // sleep values for methods Run, Attack
-        static int randomSleepWalk;
         public int randomSleepWalkB = 100;
         public int randomSleepWalkE = 300;
 
@@ -32,8 +32,6 @@ namespace Bot5PokeMMO.Framework
         string _hotkeyDown = App.hotkeyDown;
         string _hotkeyLeft = App.hotkeyLeft;
         string _hotkeyRight = App.hotkeyRight;
-
-        // Button locations
 
         // Creating an instance of AutoItX3
         AutoItX3 autoit = new AutoItX3();
@@ -128,7 +126,7 @@ namespace Bot5PokeMMO.Framework
                             MessageBox.Show("Error: Undefined state");
                         }
                     }
-                    else if (i == totalPokemon - 1) //when for loop is finished
+                    else if (i == totalPokemon - 1 && catchUnspecifiedPokemon == true) //when for loop is finished
                     {
                         // Catch function - presumrably shiny
                         catchPokemon();
@@ -295,6 +293,13 @@ namespace Bot5PokeMMO.Framework
                 walk("up");
                 walk("down");
             }
+            else if (_walkPattern == "square")
+            {
+                walk("up");
+                walk("right");
+                walk("down");
+                walk("left");
+            }
             else if (_walkPattern == "")
             {
                 MessageBox.Show("Error: A walking pattern has not been defined");
@@ -307,7 +312,8 @@ namespace Bot5PokeMMO.Framework
 
         public string combineString(string x, string state)
         {
-            //"{S UP}"
+            // d = down
+            // u = up
 
             string combineKey = x;
 
@@ -344,6 +350,16 @@ namespace Bot5PokeMMO.Framework
             result = rnd.Next(_begin, _end);
 
             return result;
+
+        }
+
+        public void setHotkeys()
+        {
+            _hotkeyUp = App.hotkeyUp;
+            _hotkeyDown = App.hotkeyDown;
+            _hotkeyLeft = App.hotkeyLeft;
+            _hotkeyRight = App.hotkeyRight;
+
 
         }
 

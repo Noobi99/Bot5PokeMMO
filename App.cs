@@ -41,6 +41,7 @@ namespace Bot5PokeMMO
             cmbWalk.Text = "Left & Right";
             cmbBot.Text = "VIRIDIAN FOREST";
             chkCatchShiny.Checked = true;
+            
 
             #region Default values for hotkeys and pixel-/coords
             // This parameters should be filled out by a config file with def values.
@@ -178,6 +179,24 @@ namespace Bot5PokeMMO
 
                 timerLogic.Interval = 300;
             }
+            else if(cmbBot.Text == "Mt. Ember")
+            {
+                // setting total pokemon via textbox
+                bot.SetTotalPokemon(5);
+
+                bot.randomSleepRunB = 300;
+                bot.randomSleepRunB = 400;
+
+                // add all pokemon that needs to be checked
+                bot.AssignVars(0x98D048, 668, 234, "run"); // Caterpie
+                bot.AssignVars(0xF8E800, 666, 239, "run"); // Pikachu
+                bot.AssignVars(0xB8F870, 647, 243, "run"); // Metapod
+                bot.AssignVars(0xF8E098, 672, 210, "run"); // Kakuna
+                bot.AssignVars(0xE8A840, 659, 265, "run"); // Weedle
+
+                timerLogic.Interval = 300;
+
+            }
            
           
         }
@@ -202,23 +221,40 @@ namespace Bot5PokeMMO
                 // setting walking pattern
                 bot.walkPattern = "updown";
             }
+            else if (cmbWalk.Text == "Square")
+            {
+                // setting walking pattern
+                bot.walkPattern = "square";
+            }
 
         }
 
         private void chkCatchShiny_CheckedChanged(object sender, EventArgs e)
         {
-
+            if (chkCatchShiny.Checked)
+            {
+                bot.catchUnspecifiedPokemon = true;
+            }
+            else
+            {
+                bot.catchUnspecifiedPokemon = false;
+            }
         }
 
         private void btnHotkeys_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("You'll need to bind your keys in PokeMMO as the above.\n(function not implemented)");
+            hotkeyUp = txtUp.Text;
+            hotkeyDown = txtDown.Text;
+            hotkeyLeft = txtLeft.Text;
+            hotkeyRight = txtRight.Text;
+
+            bot.setHotkeys();
         }
 
         private void btnTest_Click(object sender, EventArgs e)
         {
-            // Here is the autoit command tester
-            
+
+
         }
     }
 }
