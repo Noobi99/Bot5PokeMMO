@@ -40,6 +40,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.chkCatchShiny = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtSleepE = new System.Windows.Forms.TextBox();
@@ -53,18 +54,24 @@
             this.txtUp = new System.Windows.Forms.TextBox();
             this.btnHotkeys = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.chkCatchShiny = new System.Windows.Forms.CheckBox();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.btnTest = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            this.tabPage4.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnStart
             // 
             this.btnStart.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnStart.Location = new System.Drawing.Point(482, 21);
+            this.btnStart.Location = new System.Drawing.Point(480, 19);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(117, 33);
             this.btnStart.TabIndex = 0;
@@ -83,8 +90,8 @@
             this.cmbBot.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbBot.FormattingEnabled = true;
             this.cmbBot.Items.AddRange(new object[] {
-            "VIRIDIAN FOREST"});
-            this.cmbBot.Location = new System.Drawing.Point(23, 30);
+            "Viridian Forest"});
+            this.cmbBot.Location = new System.Drawing.Point(21, 28);
             this.cmbBot.Name = "cmbBot";
             this.cmbBot.Size = new System.Drawing.Size(190, 24);
             this.cmbBot.TabIndex = 1;
@@ -134,7 +141,8 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.panel1.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.btnStart);
             this.panel1.Controls.Add(this.cmbBot);
@@ -157,6 +165,7 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -179,6 +188,17 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "General";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // chkCatchShiny
+            // 
+            this.chkCatchShiny.AutoSize = true;
+            this.chkCatchShiny.Location = new System.Drawing.Point(17, 130);
+            this.chkCatchShiny.Name = "chkCatchShiny";
+            this.chkCatchShiny.Size = new System.Drawing.Size(168, 21);
+            this.chkCatchShiny.TabIndex = 10;
+            this.chkCatchShiny.Text = "Catch Shiny Pokemon";
+            this.chkCatchShiny.UseVisualStyleBackColor = true;
+            this.chkCatchShiny.CheckedChanged += new System.EventHandler(this.chkCatchShiny_CheckedChanged);
             // 
             // label4
             // 
@@ -240,6 +260,10 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.label7);
+            this.tabPage2.Controls.Add(this.label8);
+            this.tabPage2.Controls.Add(this.label6);
+            this.tabPage2.Controls.Add(this.label5);
             this.tabPage2.Controls.Add(this.txtRight);
             this.tabPage2.Controls.Add(this.txtLeft);
             this.tabPage2.Controls.Add(this.txtDown);
@@ -255,40 +279,50 @@
             // 
             // txtRight
             // 
+            this.txtRight.Enabled = false;
             this.txtRight.Location = new System.Drawing.Point(21, 102);
             this.txtRight.Name = "txtRight";
             this.txtRight.Size = new System.Drawing.Size(92, 22);
             this.txtRight.TabIndex = 9;
+            this.txtRight.Text = "D";
             // 
             // txtLeft
             // 
+            this.txtLeft.Enabled = false;
             this.txtLeft.Location = new System.Drawing.Point(21, 74);
             this.txtLeft.Name = "txtLeft";
             this.txtLeft.Size = new System.Drawing.Size(92, 22);
             this.txtLeft.TabIndex = 8;
+            this.txtLeft.Text = "A";
             // 
             // txtDown
             // 
+            this.txtDown.Enabled = false;
             this.txtDown.Location = new System.Drawing.Point(21, 46);
             this.txtDown.Name = "txtDown";
             this.txtDown.Size = new System.Drawing.Size(92, 22);
             this.txtDown.TabIndex = 7;
+            this.txtDown.Text = "S";
             // 
             // txtUp
             // 
+            this.txtUp.Enabled = false;
             this.txtUp.Location = new System.Drawing.Point(21, 18);
             this.txtUp.Name = "txtUp";
             this.txtUp.Size = new System.Drawing.Size(92, 22);
             this.txtUp.TabIndex = 6;
+            this.txtUp.Text = "W";
             // 
             // btnHotkeys
             // 
             this.btnHotkeys.Location = new System.Drawing.Point(21, 130);
             this.btnHotkeys.Name = "btnHotkeys";
-            this.btnHotkeys.Size = new System.Drawing.Size(92, 28);
+            this.btnHotkeys.Size = new System.Drawing.Size(158, 28);
             this.btnHotkeys.TabIndex = 5;
+            this.btnHotkeys.TabStop = false;
             this.btnHotkeys.Text = "Set Hotkeys";
             this.btnHotkeys.UseVisualStyleBackColor = true;
+            this.btnHotkeys.Click += new System.EventHandler(this.btnHotkeys_Click);
             // 
             // tabPage3
             // 
@@ -300,15 +334,62 @@
             this.tabPage3.Text = "Advanced";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // chkCatchShiny
+            // tabPage4
             // 
-            this.chkCatchShiny.AutoSize = true;
-            this.chkCatchShiny.Location = new System.Drawing.Point(16, 139);
-            this.chkCatchShiny.Name = "chkCatchShiny";
-            this.chkCatchShiny.Size = new System.Drawing.Size(168, 21);
-            this.chkCatchShiny.TabIndex = 10;
-            this.chkCatchShiny.Text = "Catch Shiny Pokemon";
-            this.chkCatchShiny.UseVisualStyleBackColor = true;
+            this.tabPage4.Controls.Add(this.btnTest);
+            this.tabPage4.Location = new System.Drawing.Point(4, 25);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(322, 265);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Pixel";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(119, 21);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(54, 17);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Key Up";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(119, 49);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(71, 17);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "Key Down";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(119, 105);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(69, 17);
+            this.label7.TabIndex = 13;
+            this.label7.Text = "Key Right";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(119, 77);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(60, 17);
+            this.label8.TabIndex = 12;
+            this.label8.Text = "Key Left";
+            // 
+            // btnTest
+            // 
+            this.btnTest.Location = new System.Drawing.Point(55, 51);
+            this.btnTest.Name = "btnTest";
+            this.btnTest.Size = new System.Drawing.Size(152, 76);
+            this.btnTest.TabIndex = 0;
+            this.btnTest.Text = "test";
+            this.btnTest.UseVisualStyleBackColor = true;
+            this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
             // 
             // App
             // 
@@ -333,6 +414,7 @@
             this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            this.tabPage4.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -365,5 +447,11 @@
         private System.Windows.Forms.TextBox txtSleepE;
         private System.Windows.Forms.TextBox txtSleepB;
         private System.Windows.Forms.CheckBox chkCatchShiny;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btnTest;
     }
 }

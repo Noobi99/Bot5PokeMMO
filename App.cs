@@ -102,12 +102,10 @@ namespace Bot5PokeMMO
             if (chkOnTop.Checked)
             {
                 this.TopMost = true;
-                printToConsole("TopMost enabled");
             }
             else
             {
                 this.TopMost = false;
-                printToConsole("TopMost disabled");
             }
         }
 
@@ -163,7 +161,7 @@ namespace Bot5PokeMMO
 
         private void cmbBot_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(cmbBot.Text == "VIRIDIAN FOREST")
+            if(cmbBot.Text == "Viridian Forest")
             {
                 // setting total pokemon via textbox
                 bot.SetTotalPokemon(5);
@@ -205,6 +203,22 @@ namespace Bot5PokeMMO
                 bot.walkPattern = "updown";
             }
 
+        }
+
+        private void chkCatchShiny_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnHotkeys_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("You'll need to bind your keys in PokeMMO as the above.\n(function not implemented)");
+        }
+
+        private void btnTest_Click(object sender, EventArgs e)
+        {
+            // Here is the autoit command tester
+            
         }
     }
 }

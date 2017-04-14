@@ -141,6 +141,10 @@ namespace Bot5PokeMMO.Framework
 
                 }
             }
+            else if (autoit.PixelGetColor(hordeX, hordeY) == hordeCol)
+            {
+                // We have a horde battle - do something
+            }
             else
             {
                 WalkingPattern(walkPattern);
