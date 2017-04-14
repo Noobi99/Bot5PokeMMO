@@ -80,7 +80,7 @@
             // 
             // timerLogic
             // 
-            this.timerLogic.Interval = 60;
+            this.timerLogic.Interval = 1000;
             this.timerLogic.Tick += new System.EventHandler(this.timerLogic_Tick);
             // 
             // cmbBot

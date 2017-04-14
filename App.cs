@@ -187,7 +187,7 @@ namespace Bot5PokeMMO
                 bot.AssignVars(0xF8E098, 672, 210, "run"); // Kakuna
                 bot.AssignVars(0xE8A840, 659, 265, "run"); // Weedle
 
-                timerLogic.Interval = 300;
+                timerLogic.Interval = 1000; // This needs to be set to 1000
             }
             else if(cmbBot.Text == "Mt. Ember")
             {
