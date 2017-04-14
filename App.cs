@@ -157,6 +157,12 @@ namespace Bot5PokeMMO
 
         private void tmrTime_Tick(object sender, EventArgs e)
         {
+            // Update console
+            rtbConsole.AppendText(bot.WriteToConsole());
+
+            // Encounters has to be divided by 2
+            lblEncounters.Text = "Encounters: " + bot.encounters.ToString();
+
             calculateRunTime();
         }
 
@@ -255,6 +261,11 @@ namespace Bot5PokeMMO
         {
 
 
+        }
+
+        private void btnCustomize_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            MessageBox.Show("This button does not work yet.");
         }
     }
 }

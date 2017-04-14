@@ -58,6 +58,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.btnCustomize = new System.Windows.Forms.LinkLabel();
+            this.lblEncounters = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -97,10 +99,10 @@
             // rtbConsole
             // 
             this.rtbConsole.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.rtbConsole.Location = new System.Drawing.Point(344, 12);
+            this.rtbConsole.Location = new System.Drawing.Point(344, 37);
             this.rtbConsole.Name = "rtbConsole";
             this.rtbConsole.ReadOnly = true;
-            this.rtbConsole.Size = new System.Drawing.Size(270, 311);
+            this.rtbConsole.Size = new System.Drawing.Size(270, 265);
             this.rtbConsole.TabIndex = 2;
             this.rtbConsole.Text = "";
             this.rtbConsole.TextChanged += new System.EventHandler(this.rtbConsole_TextChanged);
@@ -122,7 +124,7 @@
             // 
             this.lblStatus.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblStatus.AutoSize = true;
-            this.lblStatus.Location = new System.Drawing.Point(12, 309);
+            this.lblStatus.Location = new System.Drawing.Point(478, 305);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(117, 17);
             this.lblStatus.TabIndex = 4;
@@ -140,6 +142,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.btnCustomize);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.btnStart);
             this.panel1.Controls.Add(this.cmbBot);
@@ -165,7 +168,7 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(330, 294);
+            this.tabControl1.Size = new System.Drawing.Size(330, 311);
             this.tabControl1.TabIndex = 6;
             // 
             // tabPage1
@@ -180,7 +183,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(322, 265);
+            this.tabPage1.Size = new System.Drawing.Size(322, 282);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "General";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -363,11 +366,32 @@
             this.label8.TabIndex = 12;
             this.label8.Text = "Key Left";
             // 
+            // btnCustomize
+            // 
+            this.btnCustomize.AutoSize = true;
+            this.btnCustomize.Location = new System.Drawing.Point(213, 32);
+            this.btnCustomize.Name = "btnCustomize";
+            this.btnCustomize.Size = new System.Drawing.Size(73, 17);
+            this.btnCustomize.TabIndex = 3;
+            this.btnCustomize.TabStop = true;
+            this.btnCustomize.Text = "Customize";
+            this.btnCustomize.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.btnCustomize_LinkClicked);
+            // 
+            // lblEncounters
+            // 
+            this.lblEncounters.AutoSize = true;
+            this.lblEncounters.Location = new System.Drawing.Point(348, 305);
+            this.lblEncounters.Name = "lblEncounters";
+            this.lblEncounters.Size = new System.Drawing.Size(88, 17);
+            this.lblEncounters.TabIndex = 7;
+            this.lblEncounters.Text = "Encounters: ";
+            // 
             // App
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(626, 395);
+            this.Controls.Add(this.lblEncounters);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblStatus);
@@ -422,5 +446,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.LinkLabel btnCustomize;
+        private System.Windows.Forms.Label lblEncounters;
     }
 }

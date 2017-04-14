@@ -10,6 +10,13 @@ namespace Bot5PokeMMO.Framework
 {
     public class BotLogic
     {
+        // Console variables
+        int type = 1;
+        string message = "not set";
+
+        // Keeping track of encounters
+        public double encounters = 1;
+
         // Global variables
         public string walkPattern;
         public bool catchUnspecifiedPokemon = true;
@@ -107,6 +114,7 @@ namespace Bot5PokeMMO.Framework
         {
             if (autoit.PixelGetColor(battleX, battleY) == battleCol && autoit.PixelGetColor(hordeX, hordeY) != hordeCol)
             {
+                encounters++;
                 for (int i = 0; i < totalPokemon; i++)
                 {
                     if (autoit.PixelGetColor(cordx[i], cordy[i]) == colpix[i])
@@ -114,22 +122,26 @@ namespace Bot5PokeMMO.Framework
                         if (state[i] == "run")
                         {
                             runPokemon();
+                            message = "Ran from = " + colpix[i];
                             break;
                         }
                         else if (state[i] == "catch")
                         {
+                            
                             catchPokemon();
+                            message = "Catching  = " + colpix[i];
                             break;
                         }
                         else
                         {
-                            MessageBox.Show("Error: Undefined state");
+                            message = "Error: undefined state";
                         }
                     }
                     else if (i == totalPokemon - 1 && catchUnspecifiedPokemon == true) //when for loop is finished
                     {
                         // Catch function - presumrably shiny
                         catchPokemon();
+                        message = "Catching = unspecifed pokemon found";
 
                         break;
                     }
@@ -139,6 +151,7 @@ namespace Bot5PokeMMO.Framework
             }
             else if (autoit.PixelGetColor(hordeX, hordeY) == hordeCol)
             {
+                message = "Do nothing - Horde battle";
                 // We have a horde battle - do something
             }
             else
@@ -237,6 +250,7 @@ namespace Bot5PokeMMO.Framework
                     autoit.Send(combineString(_hotkeyLeft, "u"));
 
                     //autoit.ToolTip("Walking: " + dir, 571, 222);
+
                     break;
 
                 case "right":
@@ -282,7 +296,7 @@ namespace Bot5PokeMMO.Framework
         public void WalkingPattern(string pattern)
         {
             string _walkPattern = pattern;
-
+            
             if (_walkPattern == "leftright")
             {
                 walk("left");
@@ -363,7 +377,27 @@ namespace Bot5PokeMMO.Framework
 
         }
 
+        public string WriteToConsole()
+        {
+            int msgType = type;
+            string msgToWrite = message;
+            string lastMessage = "";
 
+            if(type == 1 && message != lastMessage)
+            {
+                msgToWrite = msgToWrite + "\n";
+
+                lastMessage = message;
+
+            }
+            else
+            {
+
+            }
+
+            return msgToWrite;
+
+        }
         #endregion
 
 
