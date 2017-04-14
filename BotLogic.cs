@@ -15,7 +15,7 @@ namespace Bot5PokeMMO.Framework
         string message = "";
 
         // Keeping track of encounters
-        public double encounters = 1;
+        public double encounters = 0;
 
         // Global variables
         public string walkPattern;

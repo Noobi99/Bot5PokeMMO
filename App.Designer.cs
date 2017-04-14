@@ -89,7 +89,8 @@
             this.cmbBot.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbBot.FormattingEnabled = true;
             this.cmbBot.Items.AddRange(new object[] {
-            "Viridian Forest"});
+            "Viridian Forest",
+            "Mt. Ember"});
             this.cmbBot.Location = new System.Drawing.Point(21, 28);
             this.cmbBot.Name = "cmbBot";
             this.cmbBot.Size = new System.Drawing.Size(190, 24);
@@ -382,9 +383,9 @@
             this.lblEncounters.AutoSize = true;
             this.lblEncounters.Location = new System.Drawing.Point(348, 305);
             this.lblEncounters.Name = "lblEncounters";
-            this.lblEncounters.Size = new System.Drawing.Size(88, 17);
+            this.lblEncounters.Size = new System.Drawing.Size(96, 17);
             this.lblEncounters.TabIndex = 7;
-            this.lblEncounters.Text = "Encounters: ";
+            this.lblEncounters.Text = "Encounters: 0";
             // 
             // App
             // 
