@@ -36,7 +36,6 @@ namespace Bot5PokeMMO.Framework
         string _hotkeyRight = App.hotkeyRight;
 
         // Button locations
-        string btnFight;
 
         // Creating an instance of AutoItX3
         AutoItX3 autoit = new AutoItX3();
@@ -110,19 +109,23 @@ namespace Bot5PokeMMO.Framework
 
         public void DoRun()
         {
-            if (autoit.PixelGetColor(battleX, battleY) == battleCol && autoit.PixelGetColor(hordeX, hordeY) == hordeCol)
+            if (autoit.PixelGetColor(battleX, battleY) == battleCol && autoit.PixelGetColor(hordeX, hordeY) != hordeCol)
             {
                 for (int i = 0; i < totalPokemon; i++)
                 {
                     if(autoit.PixelGetColor(cordx[i], cordy[i]) == colpix[i])
                     {
-                        if(state[i] == "run")
+                        int x = i; // storing value i before if statement
+
+                        if (state[x] == "run")
                         {
                             runPokemon();
+                            break;
                         }
-                        else if (state[i] == "catch")
+                        else if (state[x] == "catch")
                         {
                             catchPokemon();
+                            break;
                         }
                         else
                         {
@@ -132,7 +135,7 @@ namespace Bot5PokeMMO.Framework
                     else
                     {
                         // Catch function - presumrably shiny
-                        catchPokemon();
+                        //catchPokemon(); THIS DOES NOT SEEM TO WORK?
                     }
 
                 }
@@ -275,17 +278,19 @@ namespace Bot5PokeMMO.Framework
 
         public void WalkingPattern(string pattern)
         {
-            if (walkPattern == "leftright")
+            string _walkPattern = pattern;
+
+            if (_walkPattern == "leftright")
             {
                 walk("left");
                 walk("right");
             }
-            else if (walkPattern == "updown")
+            else if (_walkPattern == "updown")
             {
                 walk("up");
                 walk("down");
             }
-            else if (walkPattern == "")
+            else if (_walkPattern == "")
             {
                 MessageBox.Show("Error: A walking pattern has not been defined");
             }
