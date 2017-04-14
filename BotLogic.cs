@@ -12,10 +12,11 @@ namespace Bot5PokeMMO.Framework
     {
         // Console variables
         public int type = 1;
-        string message = "";
+        string message = "Test message";
 
-        // Keeping track of encounters
+        // Keeping track of encounters and attempts
         public double encounters = 0;
+        public int attempt = 0;
 
         // Global variables
         public string walkPattern;
@@ -50,6 +51,7 @@ namespace Bot5PokeMMO.Framework
         List<int> cordx = new List<int>();
         List<int> cordy = new List<int>();
         List<string> state = new List<string>();
+        List<string> pokemon = new List<string>();
 
         // In battle coordinates
         public int battleX;
@@ -62,7 +64,7 @@ namespace Bot5PokeMMO.Framework
         public Int32 hordeCol;
 
         #region initialize
-        public void AssignVars(Int32 col, int x, int y, string _state = "run")
+        public void AssignVars(Int32 col, int x, int y, string _pokemon, string _state = "run")
         {
             if(totalPokemon >= 1)
             {
@@ -71,6 +73,7 @@ namespace Bot5PokeMMO.Framework
                 cordx.Add(x);
                 cordy.Add(y);
                 state.Add(_state);
+                pokemon.Add(_pokemon);
 
             }
             else
@@ -122,7 +125,7 @@ namespace Bot5PokeMMO.Framework
                         if (state[i] == "run")
                         {
                             runPokemon();
-                            message = "Ran from = " + colpix[i]; // message
+                            message = "Ran from = " + pokemon[i] + " col: " + colpix[i]; // message
                             type = 1; // used for message 
                             break;
                         }
@@ -130,7 +133,7 @@ namespace Bot5PokeMMO.Framework
                         {
                             
                             catchPokemon();
-                            message = "Catching  = " + colpix[i];
+                            message = "Catching  = " + pokemon[i] + " col: " + colpix[i];
                             type = 1;
                             break;
                         }
@@ -143,8 +146,10 @@ namespace Bot5PokeMMO.Framework
                     else if (i == totalPokemon - 1 && catchUnspecifiedPokemon == true) //when for loop is finished
                     {
                         // Catch function - presumrably shiny
+                        attempt++;
+                        message = "Catching = unspecifed pokemon - attempt #" + attempt;
+                        type = 1;
                         catchPokemon();
-                        message = "Catching = unspecifed pokemon found";
 
                         break;
                     }
@@ -387,7 +392,7 @@ namespace Bot5PokeMMO.Framework
 
             if(type == 1)
             {
-                msgToWrite = msgToWrite + "\n";
+                msgToWrite = DateTime.Now.ToString("HH:mm:ss") + " - " + msgToWrite + "\n";
                 type = 0;
 
             }

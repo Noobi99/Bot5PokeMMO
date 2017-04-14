@@ -181,30 +181,18 @@ namespace Bot5PokeMMO
                 bot.randomSleepRunB = 400;
 
                 // add all pokemon that needs to be checked
-                bot.AssignVars(0x98D048, 668, 234, "run"); // Caterpie
-                bot.AssignVars(0xF8E800, 666, 239, "run"); // Pikachu
-                bot.AssignVars(0xB8F870, 647, 243, "run"); // Metapod
-                bot.AssignVars(0xF8E098, 672, 210, "run"); // Kakuna
-                bot.AssignVars(0xE8A840, 659, 265, "run"); // Weedle
+                bot.AssignVars(0x98D048, 668, 234, "Caterpie", "run"); // Caterpie
+                bot.AssignVars(0xF8E800, 666, 239, "Pikachu", "run"); // Pikachu
+                bot.AssignVars(0xB8F870, 647, 243, "Metapod", "run"); // Metapod
+                bot.AssignVars(0xF8E098, 672, 210, "Kakuna", "run"); // Kakuna
+                bot.AssignVars(0xE8A840, 659, 265, "Weedle", "run"); // Weedle
 
                 timerLogic.Interval = 1000; // This needs to be set to 1000
             }
             else if(cmbBot.Text == "Mt. Ember")
             {
-                // setting total pokemon via textbox
-                bot.SetTotalPokemon(5);
-
-                bot.randomSleepRunB = 300;
-                bot.randomSleepRunB = 400;
-
-                // add all pokemon that needs to be checked
-                bot.AssignVars(0x98D048, 668, 234, "run"); // Caterpie
-                bot.AssignVars(0xF8E800, 666, 239, "run"); // Pikachu
-                bot.AssignVars(0xB8F870, 647, 243, "run"); // Metapod
-                bot.AssignVars(0xF8E098, 672, 210, "run"); // Kakuna
-                bot.AssignVars(0xE8A840, 659, 265, "run"); // Weedle
-
-                timerLogic.Interval = 300;
+                MessageBox.Show("Values for Mt. Ember has not been defined yet");
+                cmbBot.Text = "Viridian Forest";
 
             }
            

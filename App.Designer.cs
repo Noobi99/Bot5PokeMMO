@@ -70,7 +70,7 @@
             // btnStart
             // 
             this.btnStart.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnStart.Location = new System.Drawing.Point(480, 19);
+            this.btnStart.Location = new System.Drawing.Point(618, 16);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(117, 33);
             this.btnStart.TabIndex = 0;
@@ -80,7 +80,7 @@
             // 
             // timerLogic
             // 
-            this.timerLogic.Interval = 1000;
+            this.timerLogic.Interval = 60;
             this.timerLogic.Tick += new System.EventHandler(this.timerLogic_Tick);
             // 
             // cmbBot
@@ -91,7 +91,7 @@
             this.cmbBot.Items.AddRange(new object[] {
             "Viridian Forest",
             "Mt. Ember"});
-            this.cmbBot.Location = new System.Drawing.Point(21, 28);
+            this.cmbBot.Location = new System.Drawing.Point(82, 28);
             this.cmbBot.Name = "cmbBot";
             this.cmbBot.Size = new System.Drawing.Size(190, 24);
             this.cmbBot.TabIndex = 1;
@@ -103,7 +103,7 @@
             this.rtbConsole.Location = new System.Drawing.Point(344, 37);
             this.rtbConsole.Name = "rtbConsole";
             this.rtbConsole.ReadOnly = true;
-            this.rtbConsole.Size = new System.Drawing.Size(270, 265);
+            this.rtbConsole.Size = new System.Drawing.Size(392, 265);
             this.rtbConsole.TabIndex = 2;
             this.rtbConsole.Text = "";
             this.rtbConsole.TextChanged += new System.EventHandler(this.rtbConsole_TextChanged);
@@ -125,7 +125,7 @@
             // 
             this.lblStatus.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblStatus.AutoSize = true;
-            this.lblStatus.Location = new System.Drawing.Point(478, 305);
+            this.lblStatus.Location = new System.Drawing.Point(539, 305);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(117, 17);
             this.lblStatus.TabIndex = 4;
@@ -149,13 +149,13 @@
             this.panel1.Controls.Add(this.cmbBot);
             this.panel1.Location = new System.Drawing.Point(-1, 329);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(633, 71);
+            this.panel1.Size = new System.Drawing.Size(755, 71);
             this.panel1.TabIndex = 5;
             // 
             // btnCustomize
             // 
             this.btnCustomize.AutoSize = true;
-            this.btnCustomize.Location = new System.Drawing.Point(213, 32);
+            this.btnCustomize.Location = new System.Drawing.Point(278, 32);
             this.btnCustomize.Name = "btnCustomize";
             this.btnCustomize.Size = new System.Drawing.Size(73, 17);
             this.btnCustomize.TabIndex = 3;
@@ -166,7 +166,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(20, 10);
+            this.label1.Location = new System.Drawing.Point(79, 8);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(87, 17);
             this.label1.TabIndex = 2;
@@ -391,7 +391,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(626, 395);
+            this.ClientSize = new System.Drawing.Size(748, 395);
             this.Controls.Add(this.lblEncounters);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.panel1);
