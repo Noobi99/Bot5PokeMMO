@@ -166,7 +166,8 @@ namespace Bot5PokeMMO.Framework
                         {
                             message = "Error: undefined state";
                             type = 1;
-
+                            // and putting encounters back to real encounter
+                            encounters--;
                             break; // breaking here sets i back to 0 so we wont catch it 
                         }
                     }

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(App));
             this.btnStart = new System.Windows.Forms.Button();
             this.timerLogic = new System.Windows.Forms.Timer(this.components);
             this.rtbConsole = new System.Windows.Forms.RichTextBox();
@@ -128,7 +129,7 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.panel1.BackColor = System.Drawing.Color.Plum;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.txtLoadedScript);
             this.panel1.Controls.Add(this.btnBrowse);
@@ -399,6 +400,7 @@
             this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.rtbConsole);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "App";
             this.Text = "Bot5PokeMMO";
