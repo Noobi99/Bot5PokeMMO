@@ -71,9 +71,9 @@
             // btnStart
             // 
             this.btnStart.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnStart.Location = new System.Drawing.Point(618, 16);
+            this.btnStart.Location = new System.Drawing.Point(618, 25);
             this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(117, 33);
+            this.btnStart.Size = new System.Drawing.Size(117, 24);
             this.btnStart.TabIndex = 0;
             this.btnStart.Text = "Start";
             this.btnStart.UseVisualStyleBackColor = true;
@@ -258,7 +258,8 @@
             this.cmbWalk.Items.AddRange(new object[] {
             "Left & Right",
             "Up & Down",
-            "Square"});
+            "Square",
+            "Perfect Square"});
             this.cmbWalk.Location = new System.Drawing.Point(16, 35);
             this.cmbWalk.Name = "cmbWalk";
             this.cmbWalk.Size = new System.Drawing.Size(169, 24);

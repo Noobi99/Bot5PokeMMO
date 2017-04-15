@@ -54,6 +54,9 @@ namespace Bot5PokeMMO.Framework
         public int catchPokemonX4;
         public int catchPokemonY4;
 
+        public int atkMove1X;
+        public int atkMove1Y;
+
 
         // Creating an instance of AutoItX3
         AutoItX3 autoit = new AutoItX3();
@@ -145,10 +148,20 @@ namespace Bot5PokeMMO.Framework
                         }
                         else if (state[i] == "catch")
                         {
-                            
                             catchPokemon();
-                            message = "Catching  = " + pokemon[i] + " col: " + colpix[i];
+                            message = "Catching  = " + pokemon[i] + " col: " + colpix[i] + " - attempt #" + attempt;
                             type = 1;
+                            break;
+                        }
+                        else if (state[i] == "attack")
+                        {
+                            message = "Attack = " + pokemon[i] + " col: " + colpix[i];
+                            type = 1;
+                            attackPokemon(1);
+
+                            // setting i back to 0, so we don't catch it if the first attack does not kill it
+                            i = 0;
+
                             break;
                         }
                         else
@@ -231,13 +244,15 @@ namespace Bot5PokeMMO.Framework
             autoit.MouseClick("LEFT", runMouseX, runMouseY);
         }
 
-        public void attackPokemon(int id = 1)
+        public void attackPokemon(int move = 1)
         {
             // Not implemented yet
-            switch (id)
+            switch (move)
             {
                 case 1:
-
+                    autoit.MouseClick("LEFT", atkMove1X, atkMove1Y);
+                    autoit.Sleep(30);
+                    autoit.MouseClick("LEFT", atkMove1X, atkMove1Y);
                     break;
 
                 case 2:
@@ -334,6 +349,16 @@ namespace Bot5PokeMMO.Framework
             }
             else if (_walkPattern == "square")
             {
+                walk("up");
+                walk("right");
+                walk("down");
+                walk("left");
+            }
+            else if (_walkPattern == "perfectsquare")
+            {
+                randomSleepWalkB = 200;
+                randomSleepWalkE = 200;
+
                 walk("up");
                 walk("right");
                 walk("down");

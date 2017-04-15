@@ -196,6 +196,11 @@ namespace Bot5PokeMMO
                 // setting walking pattern
                 bot.walkPattern = "square";
             }
+            else if (cmbWalk.Text == "Perfect Square")
+            {
+                // setting walking pattern
+                bot.walkPattern = "perfectsquare";
+            }
 
         }
 
@@ -219,6 +224,8 @@ namespace Bot5PokeMMO
             hotkeyRight = txtRight.Text;
 
             bot.setHotkeys();
+
+            MessageBox.Show("Hotkeys set!" + " up: " + hotkeyUp + " down: " + hotkeyDown + " left: " + hotkeyLeft + " right: " + hotkeyRight, "Bot5PokeMMO");
         }
 
         private void btnTest_Click(object sender, EventArgs e)
@@ -265,6 +272,17 @@ namespace Bot5PokeMMO
                     int setTotalPokemonInt = Int32.Parse(setTotalPokemon);
                     // setting equal to what has been found in the txt document
                     bot.SetTotalPokemon(setTotalPokemonInt);
+
+                    string setAtkMoveX1 = dic["ATK_MOVE1_X"];
+                    int setAtkMoveX1Int = Int32.Parse(setAtkMoveX1);
+                    // setting equal to what has been found in the txt document
+                    bot.atkMove1X = setAtkMoveX1Int;
+
+                    string setAtkMoveY1 = dic["ATK_MOVE1_Y"];
+                    int setAtkMoveY1Int = Int32.Parse(setAtkMoveY1);
+                    // setting equal to what has been found in the txt document
+                    bot.atkMove1Y = setAtkMoveY1Int;
+
 
                     string setRunMouseX = dic["RUN_MOUSE_X"];
                     int setRunMouseXInt = Int32.Parse(setRunMouseX);
