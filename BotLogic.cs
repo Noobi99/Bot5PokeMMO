@@ -159,10 +159,9 @@ namespace Bot5PokeMMO.Framework
                             type = 1;
                             attackPokemon(1);
 
-                            // setting i back to 0, so we don't catch it if the first attack does not kill it
-                            i = 0;
-
-                            break;
+                            // and putting encounters back to real encounter
+                            encounters--;
+                            break; // breaking here sets i back to 0 so we wont catch it 
                         }
                         else
                         {
@@ -356,9 +355,8 @@ namespace Bot5PokeMMO.Framework
             }
             else if (_walkPattern == "perfectsquare")
             {
-                randomSleepWalkB = 200;
-                randomSleepWalkE = 200;
-
+                randomSleepWalkB = 300;
+                randomSleepWalkE = 300;
                 walk("up");
                 walk("right");
                 walk("down");

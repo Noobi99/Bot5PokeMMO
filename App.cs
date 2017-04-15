@@ -181,6 +181,10 @@ namespace Bot5PokeMMO
 
         private void cmbWalk_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // enabling walk interval
+            txtSleepB.Enabled = true;
+            txtSleepE.Enabled = true;
+
             if (cmbWalk.Text == "Left & Right")
             {
                 // setting walking pattern
@@ -198,6 +202,12 @@ namespace Bot5PokeMMO
             }
             else if (cmbWalk.Text == "Perfect Square")
             {
+                // disabling walk interval
+                txtSleepB.Enabled = false;
+                txtSleepE.Enabled = false;
+                txtSleepB.Text = "300";
+                txtSleepE.Text = "300";
+
                 // setting walking pattern
                 bot.walkPattern = "perfectsquare";
             }
