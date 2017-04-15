@@ -31,13 +31,13 @@
             this.components = new System.ComponentModel.Container();
             this.btnStart = new System.Windows.Forms.Button();
             this.timerLogic = new System.Windows.Forms.Timer(this.components);
-            this.cmbBot = new System.Windows.Forms.ComboBox();
             this.rtbConsole = new System.Windows.Forms.RichTextBox();
             this.chkOnTop = new System.Windows.Forms.CheckBox();
             this.lblStatus = new System.Windows.Forms.Label();
             this.tmrTime = new System.Windows.Forms.Timer(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnCustomize = new System.Windows.Forms.LinkLabel();
+            this.txtLoadedScript = new System.Windows.Forms.TextBox();
+            this.btnBrowse = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -60,6 +60,7 @@
             this.btnHotkeys = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.lblEncounters = new System.Windows.Forms.Label();
+            this.ofdScript = new System.Windows.Forms.OpenFileDialog();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -82,20 +83,6 @@
             // 
             this.timerLogic.Interval = 60;
             this.timerLogic.Tick += new System.EventHandler(this.timerLogic_Tick);
-            // 
-            // cmbBot
-            // 
-            this.cmbBot.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cmbBot.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbBot.FormattingEnabled = true;
-            this.cmbBot.Items.AddRange(new object[] {
-            "Viridian Forest",
-            "Mt. Ember"});
-            this.cmbBot.Location = new System.Drawing.Point(82, 28);
-            this.cmbBot.Name = "cmbBot";
-            this.cmbBot.Size = new System.Drawing.Size(190, 24);
-            this.cmbBot.TabIndex = 1;
-            this.cmbBot.SelectedIndexChanged += new System.EventHandler(this.cmbBot_SelectedIndexChanged);
             // 
             // rtbConsole
             // 
@@ -143,30 +130,38 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Controls.Add(this.btnCustomize);
+            this.panel1.Controls.Add(this.txtLoadedScript);
+            this.panel1.Controls.Add(this.btnBrowse);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.btnStart);
-            this.panel1.Controls.Add(this.cmbBot);
             this.panel1.Location = new System.Drawing.Point(-1, 329);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(755, 71);
             this.panel1.TabIndex = 5;
             // 
-            // btnCustomize
+            // txtLoadedScript
             // 
-            this.btnCustomize.AutoSize = true;
-            this.btnCustomize.Location = new System.Drawing.Point(278, 32);
-            this.btnCustomize.Name = "btnCustomize";
-            this.btnCustomize.Size = new System.Drawing.Size(73, 17);
-            this.btnCustomize.TabIndex = 3;
-            this.btnCustomize.TabStop = true;
-            this.btnCustomize.Text = "Customize";
-            this.btnCustomize.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.btnCustomize_LinkClicked);
+            this.txtLoadedScript.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtLoadedScript.Location = new System.Drawing.Point(43, 27);
+            this.txtLoadedScript.Name = "txtLoadedScript";
+            this.txtLoadedScript.ReadOnly = true;
+            this.txtLoadedScript.Size = new System.Drawing.Size(139, 22);
+            this.txtLoadedScript.TabIndex = 5;
+            // 
+            // btnBrowse
+            // 
+            this.btnBrowse.Location = new System.Drawing.Point(188, 25);
+            this.btnBrowse.Name = "btnBrowse";
+            this.btnBrowse.Size = new System.Drawing.Size(114, 26);
+            this.btnBrowse.TabIndex = 4;
+            this.btnBrowse.Text = "Load Bot";
+            this.btnBrowse.UseVisualStyleBackColor = true;
+            this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(79, 8);
+            this.label1.Location = new System.Drawing.Point(40, 7);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(87, 17);
             this.label1.TabIndex = 2;
@@ -387,6 +382,11 @@
             this.lblEncounters.TabIndex = 7;
             this.lblEncounters.Text = "Encounters: 0";
             // 
+            // ofdScript
+            // 
+            this.ofdScript.FileName = "openFileDialog1";
+            this.ofdScript.FileOk += new System.ComponentModel.CancelEventHandler(this.ofdScript_FileOk);
+            // 
             // App
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -420,7 +420,6 @@
 
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.Timer timerLogic;
-        private System.Windows.Forms.ComboBox cmbBot;
         private System.Windows.Forms.RichTextBox rtbConsole;
         private System.Windows.Forms.CheckBox chkOnTop;
         private System.Windows.Forms.Label lblStatus;
@@ -447,7 +446,9 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.LinkLabel btnCustomize;
         private System.Windows.Forms.Label lblEncounters;
+        private System.Windows.Forms.OpenFileDialog ofdScript;
+        private System.Windows.Forms.Button btnBrowse;
+        private System.Windows.Forms.TextBox txtLoadedScript;
     }
 }

@@ -8,11 +8,23 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using AutoItX3Lib;
+using System.IO;
 
 namespace Bot5PokeMMO
 {
     public partial class App : Form
     {
+        // get bots
+        string path = Directory.GetCurrentDirectory();
+        string strfilename = "null";
+
+        // get bots - text interpretion
+        string colPoke;
+        string x;
+        string y;
+        string state;
+        string pokemon;
+
         // Creating an instance of AutoItX3
         AutoItX3 autoit = new AutoItX3();
 
@@ -27,7 +39,7 @@ namespace Bot5PokeMMO
         int runTimeM = 0; // Run time given in minutes - Variable used for conversion s-m
         int runTimeH = 0;
 
-        Bot5PokeMMO.Framework.BotLogic bot = new Framework.BotLogic();
+        public static Bot5PokeMMO.Framework.BotLogic bot = new Framework.BotLogic();
 
         public App()
         {
@@ -39,13 +51,10 @@ namespace Bot5PokeMMO
             // Settings recommended settings
             chkOnTop.Checked = true;
             cmbWalk.Text = "Left & Right";
-            cmbBot.Text = "VIRIDIAN FOREST";
+            btnStart.Enabled = false;
             chkCatchShiny.Checked = true;
-            
 
             #region Default values for hotkeys and pixel-/coords
-            // This parameters should be filled out by a config file with def values.
-            bot.GetDefVal(458, 439, 0x87959C, 557, 129, 0x84D18E);
 
             // Hotkeys being set by a config file - they are default by now though. These are not working
             hotkeyUp = "W";
@@ -57,41 +66,31 @@ namespace Bot5PokeMMO
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            if(cmbBot.Text == "")
+
+            if (botRunning == false)
             {
-                printToConsole("Error: A bot needs to be selected");
+                // setting sleep interval
+                bot.randomSleepWalkB = Int32.Parse(txtSleepB.Text);
+                bot.randomSleepWalkE = Int32.Parse(txtSleepE.Text);
+
+                tmrTime.Enabled = true;
+                timerLogic.Enabled = true;
+                botRunning = true;
+                btnStart.Text = "Stop";
+                printToConsole("Started");
+                setPokeMMO();
+
             }
-            else
+            else if (botRunning == true)
             {
-                if (botRunning == false)
-                {
-                    // setting sleep interval
-                    bot.randomSleepWalkB = Int32.Parse(txtSleepB.Text);
-                    bot.randomSleepWalkE = Int32.Parse(txtSleepE.Text);
-
-                    tmrTime.Enabled = true;
-                    timerLogic.Enabled = true;
-                    botRunning = true;
-                    btnStart.Text = "Stop";
-                    printToConsole("Bot started " + cmbBot.Text);
-                    cmbBot.Enabled = false;
-                    setPokeMMO();
-
-                }
-                else if(botRunning == true)
-                {
-                    tmrTime.Enabled = false;
-                    timerLogic.Enabled = false;
-                    botRunning = false;
-                    btnStart.Text = "Start";
-                    printToConsole("Bot stopped " + cmbBot.Text);
-                    cmbBot.Enabled = true;
-                }
+                tmrTime.Enabled = false;
+                timerLogic.Enabled = false;
+                botRunning = false;
+                btnStart.Text = "Start";
+                printToConsole("Stopped");
             }
-
-
-
         }
+   
 
         private void timerLogic_Tick(object sender, EventArgs e)
         {
@@ -170,35 +169,6 @@ namespace Bot5PokeMMO
             calculateRunTime();
         }
 
-        private void cmbBot_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if(cmbBot.Text == "Viridian Forest")
-            {
-                // setting total pokemon via textbox
-                bot.SetTotalPokemon(5);
-
-                bot.randomSleepRunB = 300;
-                bot.randomSleepRunB = 400;
-
-                // add all pokemon that needs to be checked
-                bot.AssignVars(0x98D048, 668, 234, "Caterpie", "run"); // Caterpie
-                bot.AssignVars(0xF8E800, 666, 239, "Pikachu", "run"); // Pikachu
-                bot.AssignVars(0xB8F870, 647, 243, "Metapod", "run"); // Metapod
-                bot.AssignVars(0xF8E098, 672, 210, "Kakuna", "run"); // Kakuna
-                bot.AssignVars(0xE8A840, 659, 265, "Weedle", "run"); // Weedle
-
-                timerLogic.Interval = 1000; // This needs to be set to 1000
-            }
-            else if(cmbBot.Text == "Mt. Ember")
-            {
-                MessageBox.Show("Values for Mt. Ember has not been defined yet");
-                cmbBot.Text = "Viridian Forest";
-
-            }
-           
-          
-        }
-
         public void setPokeMMO() // this method sets window size and position
         {
             autoit.WinMove("PokeMMO", "", 0, 0, 900, 600); // WinMove ( "title", "text", x, y [, width [, height [, speed]]] )
@@ -255,10 +225,122 @@ namespace Bot5PokeMMO
 
         }
 
-        private void btnCustomize_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+
+        private void btnBrowse_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("This button does not work yet.");
+            // txt interpreter
+            ofdScript.Filter = "Text|*.txt|All|*.*";
+
+            if (ofdScript.ShowDialog(this) == DialogResult.OK)
+            {
+                strfilename = ofdScript.InitialDirectory + ofdScript.FileName;
+                btnStart.Enabled = true;
+
+
+                /*if (new FileInfo(strfilename).Length == 0)
+                {
+                    // empty
+                }
+                else
+                {
+                */
+                    string fixedFilename = ofdScript.SafeFileName;
+
+                    txtLoadedScript.Text = fixedFilename;
+
+                    // code taken from: http://stackoverflow.com/questions/5174404/get-parameters-out-of-text-file (answered Mar 2 '11 at 22:42)
+                    // Dic string
+                    var dic = File.ReadAllLines(strfilename)
+                    .Select(l => l.Split(new[] { '=' }))
+                    .ToDictionary(s => s[0].Trim(), s => s[1].Trim());
+
+                    // basic config vars
+                    string botName = dic["BOT_NAME"];
+                    MessageBox.Show(botName);
+
+                    string setTotalPokemon = dic["TOTAL_POKEMON"];
+                    int setTotalPokemonInt = Int32.Parse(setTotalPokemon);
+                    // setting equal to what has been found in the txt document
+                    bot.SetTotalPokemon(setTotalPokemonInt);
+
+                    string battleX = dic["BATTLE_X"];
+                    int setBattleXInt = Int32.Parse(battleX);
+
+                     string battleY = dic["BATTLE_Y"];
+                     int setBattleYInt = Int32.Parse(battleY);
+
+                    string battleCol = dic["BATTLE_COL"];
+                    int setBattleColInt32 = Convert.ToInt32(battleCol, 16);
+
+                    string hordeX = dic["HORDE_X"];
+                    int setHordeX = Int32.Parse(hordeX);
+
+                    string hordeY = dic["HORDE_Y"];
+                    int setHordeY = Int32.Parse(hordeY);
+
+                    string hordeCol = dic["HORDE_COL"];
+                    int setHordeColInt32 = Convert.ToInt32(hordeCol, 16);
+
+                    bot.GetDefVal(setBattleXInt, setBattleYInt, setBattleColInt32, setHordeX, setHordeY, setHordeColInt32);
+                // bot.GetDefVal(458, 439, 0x87959C, 557, 129, 0x84D18E);
+                MessageBox.Show("Total pokemon set to: " + setTotalPokemon);
+
+                    for (int i = 0; i < setTotalPokemonInt; i++)
+                    {
+                        pokemon = dic["NAME_POKE" + i];
+                        //MessageBox.Show(pokemon);
+
+                        state = dic["STATE_POKE" + i];
+                       // MessageBox.Show(state);
+
+                        colPoke = dic["COL_POKE" + i];
+                        //MessageBox.Show(colPoke);
+
+                        x = dic["X_POKE" + i];
+                        //MessageBox.Show(x);
+
+                        y = dic["Y_POKE" + i];
+                        //MessageBox.Show(y);
+
+                    // conversion
+                        Int32 _colPoke = Convert.ToInt32(colPoke, 16);
+                        int _x = Int32.Parse(x);
+                        int _y = Int32.Parse(y);
+
+                        bot.AssignVars(_colPoke, _x, _y, pokemon, state);
+                    }
+
+                    timerLogic.Interval = 1000; // This needs to be set to 1000
+
+                }
+            }
+
+        private void ofdScript_FileOk(object sender, CancelEventArgs e)
+        {
+
         }
+
+
+
+        /*
+        if(cmbBot.Text == "Viridian Forest")
+        {
+            // setting total pokemon via textbox
+            bot.SetTotalPokemon(5);
+
+            bot.randomSleepRunB = 300;
+            bot.randomSleepRunB = 400;
+
+            // add all pokemon that needs to be checked
+            bot.AssignVars(0x98D048, 668, 234, "Caterpie", "run"); // Caterpie
+            bot.AssignVars(0xF8E800, 666, 239, "Pikachu", "run"); // Pikachu
+            bot.AssignVars(0xB8F870, 647, 243, "Metapod", "run"); // Metapod
+            bot.AssignVars(0xF8E098, 672, 210, "Kakuna", "run"); // Kakuna
+            bot.AssignVars(0xE8A840, 659, 265, "Weedle", "run"); // Weedle
+
+            timerLogic.Interval = 1000; // This needs to be set to 1000
+        }
+        */
 
     }
 }

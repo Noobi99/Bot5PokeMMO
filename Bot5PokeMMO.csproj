@@ -67,7 +67,6 @@
       <DependentUpon>App.cs</DependentUpon>
     </Compile>
     <Compile Include="BotLogic.cs" />
-    <Compile Include="MonitorInformation.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="App.resx">
