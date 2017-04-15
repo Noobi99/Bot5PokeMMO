@@ -155,10 +155,9 @@ namespace Bot5PokeMMO.Framework
                         }
                         else if (state[i] == "attack")
                         {
-                            message = "Attack = " + pokemon[i] + " col: " + colpix[i];
-                            type = 1;
                             attackPokemon(1);
-
+                            message = "Attacked (atk1) = " + pokemon[i] + " col: " + colpix[i];
+                            type = 1;
                             // and putting encounters back to real encounter
                             encounters--;
                             break; // breaking here sets i back to 0 so we wont catch it 
@@ -167,6 +166,8 @@ namespace Bot5PokeMMO.Framework
                         {
                             message = "Error: undefined state";
                             type = 1;
+
+                            break; // breaking here sets i back to 0 so we wont catch it 
                         }
                     }
                     else if (i == totalPokemon - 1 && catchUnspecifiedPokemon == true) //when for loop is finished
