@@ -39,7 +39,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtLoadedScript = new System.Windows.Forms.TextBox();
             this.btnBrowse = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.chkCatchShiny = new System.Windows.Forms.CheckBox();
@@ -62,6 +61,7 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.lblEncounters = new System.Windows.Forms.Label();
             this.ofdScript = new System.Windows.Forms.OpenFileDialog();
+            this.lblScript = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -72,9 +72,9 @@
             // btnStart
             // 
             this.btnStart.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnStart.Location = new System.Drawing.Point(618, 25);
+            this.btnStart.Location = new System.Drawing.Point(557, 15);
             this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(117, 24);
+            this.btnStart.Size = new System.Drawing.Size(116, 37);
             this.btnStart.TabIndex = 0;
             this.btnStart.Text = "Start";
             this.btnStart.UseVisualStyleBackColor = true;
@@ -129,11 +129,11 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BackColor = System.Drawing.Color.Plum;
+            this.panel1.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.lblScript);
             this.panel1.Controls.Add(this.txtLoadedScript);
             this.panel1.Controls.Add(this.btnBrowse);
-            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.btnStart);
             this.panel1.Location = new System.Drawing.Point(-1, 329);
             this.panel1.Name = "panel1";
@@ -142,31 +142,22 @@
             // 
             // txtLoadedScript
             // 
-            this.txtLoadedScript.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtLoadedScript.BackColor = System.Drawing.Color.White;
             this.txtLoadedScript.Location = new System.Drawing.Point(43, 27);
             this.txtLoadedScript.Name = "txtLoadedScript";
             this.txtLoadedScript.ReadOnly = true;
-            this.txtLoadedScript.Size = new System.Drawing.Size(139, 22);
+            this.txtLoadedScript.Size = new System.Drawing.Size(386, 22);
             this.txtLoadedScript.TabIndex = 5;
             // 
             // btnBrowse
             // 
-            this.btnBrowse.Location = new System.Drawing.Point(188, 25);
+            this.btnBrowse.Location = new System.Drawing.Point(435, 15);
             this.btnBrowse.Name = "btnBrowse";
-            this.btnBrowse.Size = new System.Drawing.Size(114, 26);
+            this.btnBrowse.Size = new System.Drawing.Size(116, 37);
             this.btnBrowse.TabIndex = 4;
             this.btnBrowse.Text = "Load Bot";
             this.btnBrowse.UseVisualStyleBackColor = true;
             this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(40, 7);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(87, 17);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Select a bot:";
             // 
             // tabControl1
             // 
@@ -389,6 +380,15 @@
             this.ofdScript.FileName = "openFileDialog1";
             this.ofdScript.FileOk += new System.ComponentModel.CancelEventHandler(this.ofdScript_FileOk);
             // 
+            // lblScript
+            // 
+            this.lblScript.AutoSize = true;
+            this.lblScript.Location = new System.Drawing.Point(40, 7);
+            this.lblScript.Name = "lblScript";
+            this.lblScript.Size = new System.Drawing.Size(115, 17);
+            this.lblScript.TabIndex = 6;
+            this.lblScript.Text = "Script File Name:";
+            // 
             // App
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -431,7 +431,6 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TextBox txtRight;
         private System.Windows.Forms.TextBox txtLeft;
@@ -453,5 +452,6 @@
         private System.Windows.Forms.OpenFileDialog ofdScript;
         private System.Windows.Forms.Button btnBrowse;
         private System.Windows.Forms.TextBox txtLoadedScript;
+        private System.Windows.Forms.Label lblScript;
     }
 }
