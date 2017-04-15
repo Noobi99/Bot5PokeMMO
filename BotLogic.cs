@@ -41,6 +41,20 @@ namespace Bot5PokeMMO.Framework
         string _hotkeyLeft = App.hotkeyLeft;
         string _hotkeyRight = App.hotkeyRight;
 
+        // mouse clicks
+        public int runMouseX;
+        public int runMouseY;
+
+        public int catchPokemonX1;
+        public int catchPokemonY1;
+        public int catchPokemonX2;
+        public int catchPokemonY2;
+        public int catchPokemonX3;
+        public int catchPokemonY3;
+        public int catchPokemonX4;
+        public int catchPokemonY4;
+
+
         // Creating an instance of AutoItX3
         AutoItX3 autoit = new AutoItX3();
 
@@ -159,7 +173,8 @@ namespace Bot5PokeMMO.Framework
             }
             else if (autoit.PixelGetColor(hordeX, hordeY) == hordeCol)
             {
-                message = "Do nothing - Horde battle";
+                message = "Error: Horde Battle - there are no defined methods given for horde battle yet!";
+                type = 1;
                 // We have a horde battle - do something
             }
             else
@@ -181,22 +196,22 @@ namespace Bot5PokeMMO.Framework
             autoit.Sleep(2000);
 
             // A MouseClick is now simulated to kill the pokemon
-            autoit.MouseClick("LEFT", 386, 361);
+            autoit.MouseClick("LEFT", catchPokemonX1, catchPokemonY1);
 
             // navigate bag 1/2
             autoit.Sleep(2500);
 
-            autoit.MouseClick("LEFT", 389, 351);
+            autoit.MouseClick("LEFT", catchPokemonX2, catchPokemonY2);
 
             // navigate bag 2/2
             autoit.Sleep(1500);
 
-            autoit.MouseClick("LEFT", 389, 351);
+            autoit.MouseClick("LEFT", catchPokemonX3, catchPokemonY3);
 
             // Use pokeball
             autoit.Sleep(1500);
 
-            autoit.MouseClick("LEFT", 327, 373);
+            autoit.MouseClick("LEFT", catchPokemonX4, catchPokemonY4);
 
             // Sleeping here for a long time so we are sure that we are through catching sequence.
             autoit.Sleep(10000);
@@ -213,7 +228,7 @@ namespace Bot5PokeMMO.Framework
             autoit.Sleep(RandomSleep(randomSleepRunB, randomSleepRunE));
 
             // A MouseClick is now simulated to kill the pokemon
-            autoit.MouseClick("LEFT", 386, 407);
+            autoit.MouseClick("LEFT", runMouseX, runMouseY);
         }
 
         public void attackPokemon(int id = 1)

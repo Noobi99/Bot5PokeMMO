@@ -79,6 +79,7 @@ namespace Bot5PokeMMO
                 btnStart.Text = "Stop";
                 printToConsole("Started");
                 setPokeMMO();
+                btnBrowse.Enabled = false;
 
             }
             else if (botRunning == true)
@@ -88,6 +89,7 @@ namespace Bot5PokeMMO
                 botRunning = false;
                 btnStart.Text = "Start";
                 printToConsole("Stopped");
+                btnBrowse.Enabled = true;
             }
         }
    
@@ -229,7 +231,8 @@ namespace Bot5PokeMMO
         private void btnBrowse_Click(object sender, EventArgs e)
         {
             // txt interpreter
-            ofdScript.Filter = "Text|*.txt|All|*.*";
+            ofdScript.Filter = "Text|*.txt";
+            ofdScript.Title = "Bot5PokeMMO - Open bot (.txt files only)";
 
             if (ofdScript.ShowDialog(this) == DialogResult.OK)
             {
@@ -263,7 +266,57 @@ namespace Bot5PokeMMO
                     // setting equal to what has been found in the txt document
                     bot.SetTotalPokemon(setTotalPokemonInt);
 
-                    string battleX = dic["BATTLE_X"];
+                    string setRunMouseX = dic["RUN_MOUSE_X"];
+                    int setRunMouseXInt = Int32.Parse(setRunMouseX);
+                    // setting equal to what has been found in the txt document
+                    bot.runMouseX = setRunMouseXInt;
+
+                    string setRunMouseY = dic["RUN_MOUSE_Y"];
+                    int setRunMouseYInt = Int32.Parse(setRunMouseY);
+                    // setting equal to what has been found in the txt document
+                    bot.runMouseY = setRunMouseYInt;
+
+                    string setCatchPokemonX1 = dic["CATCH_POKE_X1"];
+                    int setCatchPokemonX1Int = Int32.Parse(setCatchPokemonX1);
+                    // setting equal to what has been found in the txt document
+                    bot.catchPokemonX1 = setCatchPokemonX1Int;
+
+                string setCatchPokemonY1 = dic["CATCH_POKE_Y1"];
+                int setCatchPokemonY1Int = Int32.Parse(setCatchPokemonY1);
+                // setting equal to what has been found in the txt document
+                bot.catchPokemonY1 = setCatchPokemonY1Int;
+
+                string setCatchPokemonX2 = dic["CATCH_POKE_X2"];
+                    int setCatchPokemonX2Int = Int32.Parse(setCatchPokemonX2);
+                    // setting equal to what has been found in the txt document
+                    bot.catchPokemonX2 = setCatchPokemonX2Int;
+
+                string setCatchPokemonY2 = dic["CATCH_POKE_Y2"];
+                int setCatchPokemonY2Int = Int32.Parse(setCatchPokemonY2);
+                // setting equal to what has been found in the txt document
+                bot.catchPokemonY2 = setCatchPokemonY2Int;
+
+                string setCatchPokemonX3 = dic["CATCH_POKE_X3"];
+                int setCatchPokemonX3Int = Int32.Parse(setCatchPokemonX3);
+                // setting equal to what has been found in the txt document
+                bot.catchPokemonX3 = setCatchPokemonX3Int;
+
+                string setCatchPokemonY3 = dic["CATCH_POKE_Y3"];
+                int setCatchPokemonY3Int = Int32.Parse(setCatchPokemonY3);
+                // setting equal to what has been found in the txt document
+                bot.catchPokemonY3 = setCatchPokemonY3Int;
+
+                string setCatchPokemonX4 = dic["CATCH_POKE_X4"];
+                int setCatchPokemonX4Int = Int32.Parse(setCatchPokemonX4);
+                // setting equal to what has been found in the txt document
+                bot.catchPokemonX4 = setCatchPokemonX4Int;
+
+                string setCatchPokemonY4 = dic["CATCH_POKE_Y4"];
+                int setCatchPokemonY4Int = Int32.Parse(setCatchPokemonY4);
+                // setting equal to what has been found in the txt document
+                bot.catchPokemonY4 = setCatchPokemonY4Int;
+
+                string battleX = dic["BATTLE_X"];
                     int setBattleXInt = Int32.Parse(battleX);
 
                      string battleY = dic["BATTLE_Y"];
@@ -312,7 +365,11 @@ namespace Bot5PokeMMO
 
                     timerLogic.Interval = 1000; // This needs to be set to 1000
 
-                }
+                printToConsole(strfilename + " --- Values Loaded!");
+
+                    btnStart.PerformClick();
+
+            }
             }
 
         private void ofdScript_FileOk(object sender, CancelEventArgs e)
