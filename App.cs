@@ -49,7 +49,9 @@ namespace Bot5PokeMMO
         private void App_Load(object sender, EventArgs e)
         {
             // Settings recommended settings
-            chkOnTop.Checked = true;
+            chkOnTop.Checked = false;
+            chkOnTop.Checked = true; // performing checkChanged to execute code
+
             chkMoveWin.Checked = true; //- should not be set to TRUE as default as there are no tooltips yet explaining how it only works when PokeMMO is at login state
             chkMoveWin.Checked = false; // setting to false again so we get to execute checkChanged, so we hide the textboxes and labels.
             cmbWalk.Text = "Left & Right";
@@ -240,7 +242,7 @@ namespace Bot5PokeMMO
 
             bot.setHotkeys();
 
-            MessageBox.Show("Hotkeys set!" + " up: " + hotkeyUp + " down: " + hotkeyDown + " left: " + hotkeyLeft + " right: " + hotkeyRight, "Bot5PokeMMO");
+            MessageBox.Show("Hotkeys set!" + " up: " + hotkeyUp + ", down: " + hotkeyDown + ", left: " + hotkeyLeft + " & right: " + hotkeyRight, "Bot5PokeMMO");
         }
 
         private void btnTest_Click(object sender, EventArgs e)
