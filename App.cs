@@ -50,7 +50,8 @@ namespace Bot5PokeMMO
         {
             // Settings recommended settings
             chkOnTop.Checked = true;
-            chkMoveWin.Checked = true;
+            chkMoveWin.Checked = true; //- should not be set to TRUE as default as there are no tooltips yet explaining how it only works when PokeMMO is at login state
+            chkMoveWin.Checked = false; // setting to false again so we get to execute checkChanged, so we hide the textboxes and labels.
             cmbWalk.Text = "Left & Right";
             btnStart.Enabled = false;
             chkCatchShiny.Checked = true;
