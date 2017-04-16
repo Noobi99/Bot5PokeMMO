@@ -50,6 +50,7 @@ namespace Bot5PokeMMO
         {
             // Settings recommended settings
             chkOnTop.Checked = true;
+            chkMoveWin.Checked = true;
             cmbWalk.Text = "Left & Right";
             btnStart.Enabled = false;
             chkCatchShiny.Checked = true;
@@ -78,7 +79,10 @@ namespace Bot5PokeMMO
                 botRunning = true;
                 btnStart.Text = "Stop";
                 printToConsole("Started");
-                setPokeMMO();
+
+
+                if(chkMoveWin.Checked == true) setPokeMMO();
+
                 btnBrowse.Enabled = false;
 
             }
@@ -173,7 +177,7 @@ namespace Bot5PokeMMO
 
         public void setPokeMMO() // this method sets window size and position
         {
-            autoit.WinMove("PokeMMO", "", 0, 0, 900, 600); // WinMove ( "title", "text", x, y [, width [, height [, speed]]] )
+            autoit.WinMove("PokeMMO", "", 0, 0, 522, 322); // WinMove ( "title", "text", x, y [, width [, height [, speed]]] )
             autoit.WinActivate("PokeMMO"); // this line doesn't work. bah
 
             printToConsole("Window moved succesfully");
@@ -402,6 +406,25 @@ namespace Bot5PokeMMO
 
         private void ofdScript_FileOk(object sender, CancelEventArgs e)
         {
+
+        }
+
+        private void chkMoveWin_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkMoveWin.Checked == true)
+            {
+                txtHeight.Visible = true;
+                txtWidth.Visible = true;
+                lblHeight.Visible = true;
+                lblWidth.Visible = true;
+            }
+            else if(chkMoveWin.Checked == false)
+            {
+                txtHeight.Visible = false;
+                txtWidth.Visible = false;
+                lblHeight.Visible = false;
+                lblWidth.Visible = false;
+            }
 
         }
 
