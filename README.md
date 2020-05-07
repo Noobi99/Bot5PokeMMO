@@ -1,3 +1,6 @@
+# (OUTDATED) 
+- PokeMMO uses animated sprites now, so it might be hard to do pixel detection.
+
 # Bot5PokeMMO
 This is a application that automates certain tasks in the game PokeMMO. This application relies on the library AutoItX3. The program uses different methods defined in this library where most of them requires the window to be active. This has some advantages and disadvantages in relation to its performance and capabilities.
 
